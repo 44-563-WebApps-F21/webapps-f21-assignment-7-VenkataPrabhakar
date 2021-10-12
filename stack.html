@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html> <head> 
+    <title>stack</title>
+    <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style></head>
+
+
+
+<body>
+    <h2>VenkataPrabhakar builds a stack</h2>
+    <p>Enter Input:</p>
+    <input id="texted" type="text"></input>
+		<div class="flex-container" id="target">
+		  <div class="stack">row item 1</div>   
+		  <div class="stack">row item 2</div>  
+		  <div class="stack">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+		<button onclick="makeNewDiv()">Push value</button>
+        <button onclick="popItem()">Push value</button>
+        <button onclick="zap()">Zap</button>
+	
+	
+</body>
+<script>
+    let element = document.createElement("div")
+element.innerHTML = document.getElementById("texted").value
+element.className = "stack"
+    function makeNewDiv() {
+
+let element = document.createElement("div")
+element.innerHTML = document.getElementById("texted").value
+element.className = "stack"
+
+var stackItems = document.getElementsByClassName("stack");
+
+var p = 0;
+
+/* if (stackItems.length > 0) {
+    for (let i = 0; i< stackItems.length; i++) {
+        if (stackItems[i].innerHTML == element.innerHTML) {
+            stackItems[i].remove();
+            console.log("We are removing duplicates");
+            p = 1;
+            break;
+        }
+    }
+    if (p == 0) {
+        var randmNum = Math.floor(Math.random() * (stackItems.length - 0) + 0)
+        stackItems[randmNum].remove();
+    }
+} */
+
+document.getElementById('target').appendChild(element)
+
+}
+function popItem() {
+    var p = 0;
+    let i=0;
+    var stackItems = document.getElementsByClassName("stack");
+    if (stackItems.length > 0) { 
+            stackItems[i].remove();
+            console.log("We are removing duplicates");
+            p = 1;
+            
+
+}
+if (p == 0) {
+        var randmNum = Math.floor(Math.random() * (stackItems.length - 0) + 0)
+        stackItems[randmNum].remove();
+    }
+document.getElementById('target').appendChild(element)
+
+}
+function zap() {
+    var p = 0;
+    var stackItems = document.getElementsByClassName("stack");
+    element.innerHTML = document.getElementById("texted").value
+    for (let i = 0; i< stackItems.length; i++) {
+        if (stackItems[i].innerHTML == element.innerHTML) {
+            stackItems[i].remove();
+            console.log("We are removing duplicates");
+            p = 1;
+            
+        }
+    
+        if (p == 0) {
+        var randmNum = Math.floor(Math.random() * (stackItems.length - 0) + 0)
+        stackItems[randmNum].remove();
+    }}
+    document.getElementById('target').appendChild(element)
+
+
+}
+</script>
+</html>	
